@@ -104,7 +104,7 @@ export default function LoveCalendar() {
 
       <div className="event-list">
         {events.length === 0 ? (
-          <p className="no-events">No events added yet!</p>
+          <p className="no-events">Kuch plan kro madam ji!</p>
         ) : (
           <ul>
             <AnimatePresence>
