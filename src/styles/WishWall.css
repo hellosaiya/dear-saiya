@@ -1,0 +1,275 @@
+.wishwall-container {
+  background-color: #bfa2dc;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  color: #4a326f;
+}
+
+/* Back Button (Styled like SpecialDay) */
+.back-button {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: #e6d7f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #4a326f;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.back-button:hover {
+  background-color: #bfa2dc;
+}
+
+/* Title */
+.wishwall-heading {
+  text-align: center;
+  color: #4a326f;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease;
+}
+
+/* No Wishes Text */
+.no-wishes {
+  text-align: center;
+  color: #6e5a84;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Grid Layout */
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+/* Wish Card */
+.wish-card {
+  background: #fff4ff;
+  width: 100%;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  color: #4a326f;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  animation: popFade 0.8s ease; /* 👈 added */
+}
+
+/* Card Text Styles */
+.wish-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #4a326f;
+}
+
+.wish-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.wish-user {
+  font-size: 0.8rem;
+  color: #6d4b87;
+}
+
+/* Action Buttons */
+.wish-actions {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.wish-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  color: #6a3dad;
+  transition: opacity 0.2s ease;
+}
+
+.wish-actions button:hover {
+  opacity: 0.8;
+}
+
+.wish-actions button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Add Button */
+.floating-add-button {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  background-color: #e6d7f5;
+  color: #4a326f;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.floating-add-button:hover {
+  background-color: #d6c3eb;
+}
+
+/* Popup Form */
+.wish-form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Form Container */
+.wish-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeUp 0.4s ease;
+}
+
+/* Inputs */
+.wish-form input,
+.wish-form textarea {
+  background-color: #f6ecff;
+  color: #4a326f;
+  padding: 0.8rem;
+  border: 1.5px solid #d4bff0;
+  border-radius: 10px;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wish-form input::placeholder,
+.wish-form textarea::placeholder {
+  color: #a086ba;
+}
+
+/* Focus (no blue outline) */
+.wish-form input:focus,
+.wish-form textarea:focus {
+  border-color: #a77ac8;
+  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.2);
+  outline: none;
+}
+
+.wish-form textarea {
+  min-height: 100px;
+  resize: vertical;
+  border: 1.5px solid #d4bff0 !important;
+}
+
+/* Form Buttons */
+.wish-form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.wish-form-buttons button {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.wish-form-buttons button[type="submit"] {
+  background-color: #bb9cda;
+  color: white;
+}
+
+.wish-form-buttons button[type="submit"]:hover {
+  background-color: #a77ac8;
+}
+
+.wish-form-buttons .cancel-btn {
+  background-color: #e6d7f5;
+  color: white;
+}
+
+.wish-form-buttons .cancel-btn:hover {
+  background-color: #d6c3eb;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+.pop-in {
+  animation: popFade 0.8s ease;
+}

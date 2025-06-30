@@ -1,0 +1,225 @@
+.sticky-notes-container {
+    background-color: #bfa2dc;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+  
+/* --- Animations for StickyNotes --- */
+@keyframes popFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pop-in {
+  animation: popFade 0.8s ease;
+}
+
+.back-button {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: #e6d7f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #4a326f;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.back-button:hover {
+  background-color: #bfa2dc;
+}
+
+  
+  .page-title {
+    text-align: center;
+    color: #4a326f;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .no-notes {
+    text-align: center;
+    color: gray;
+  }
+  
+  .notes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .note-card {
+    background: #f6ecff; /* light lavender sticky look */
+    border-radius: 14px;
+    padding: 1rem;
+    min-height: 240px;
+    width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    animation: fadeUp 0.4s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    color: #4a326f; /* sticky text in dark lavender */
+    font-size: 0.95rem;
+  }
+
+  .note-card-actions button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .note-card * {
+    color: #4a326f !important; /* Ensures all child text (if any) also stays dark */
+  }
+  
+  .note-card-actions {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .note-card-actions button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    color: #6a3dad; /* consistent with gift cards */
+    transition: opacity 0.2s ease;
+  }
+  
+  .note-card-actions button:hover {
+    opacity: 0.8;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }  
+  
+  .form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .popup-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: min(90%, 400px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .page-title {
+    text-align: center;
+    color: #4a326f !important; /* deeper lavender purple */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease;
+  }
+  
+  
+  .popup-form input,
+  .popup-form textarea {
+    background-color: #f6ecff;
+    color: #4a326f;
+    padding: 0.8rem;
+    border: 1.5px solid #d4bff0 !important;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+    outline: none; /* removes the blue outline */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Optional: subtle lavender focus ring */
+  .popup-form input:focus,
+  .popup-form textarea:focus {
+    border-color: #a77ac8;
+    box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.25);
+    outline: none;
+  }
+  
+  .popup-form input::placeholder,
+  .popup-form textarea::placeholder {
+    color: #a086ba; /* soft lavender placeholder */
+  }
+  
+  
+  .popup-form button {
+    padding: 0.75rem;
+    background-color: #bb9cda;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .popup-form button:hover {
+    background-color: #a77ac8;
+  }
+  
+  .floating-add-btn {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    background-color: #e6d7f5;
+    color: #4a326f;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1.4rem;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .cancel-btn {
+    background-color: #e0e0e0;
+    color: #4a326f;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #d0c6db;
+  }
+    

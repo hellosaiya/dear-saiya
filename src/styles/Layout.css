@@ -1,0 +1,42 @@
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #bfa2dc; /* Lavender background */
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .header {
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4b2c61;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content {
+    flex: 1;
+    padding: 2rem 1rem;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #4b2c61;
+    font-size: 0.9rem;
+  }
+  
+  .logo-link {
+    text-decoration: none;
+    color: #4b2c61;
+    transition: color 0.2s ease;
+  }
+  
+  .logo-link:hover {
+    color: #2d1b3a;
+  }
+    

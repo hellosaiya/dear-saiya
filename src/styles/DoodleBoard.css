@@ -1,0 +1,107 @@
+.doodle-container {
+  height: 100vh;
+  background-color: #bfa2dc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.doodle-heading {
+  color: #4a326f;
+  margin-bottom: 2rem;
+}
+
+.canvas-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.canvas-wrapper {
+  position: relative;
+}
+
+.doodle-canvas {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  cursor: crosshair;
+  width: 700px;
+  height: 400px;
+  max-width: 100%;
+}
+
+.clear-btn {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff77aa;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.left-tools,
+.right-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brush-size {
+  writing-mode: bt-lr;
+  transform: rotate(-90deg);
+  width: 130px;
+  margin-bottom: 1rem;
+  background: transparent;
+  appearance: none;
+}
+
+.brush-size::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #333;
+  cursor: pointer;
+}
+
+.color-picker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #1b1119;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.partner-cursor {
+  position: absolute;
+  background-color: #fff;
+  color: #b34fa0;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+

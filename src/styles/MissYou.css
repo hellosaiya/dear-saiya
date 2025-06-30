@@ -1,0 +1,191 @@
+/* Same style as virtualhug.css, adjusted for missyou context */
+.hug-wrapper {
+  background-color: #bfa2dc;
+  min-height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+.back-button {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: #e6d7f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #4a326f;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.back-button:hover {
+  background-color: #bfa2dc;
+}
+
+.hug-card {
+  background: none;
+  border-radius: 18px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: '💗 💕 💖 💘 💝 💞';
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  white-space: nowrap;
+  font-size: 2rem;
+  opacity: 0.2;
+  animation: floatUp 12s linear infinite;
+}
+
+.floating-hearts::after {
+  left: 40%;
+  animation-delay: 6s;
+}
+
+@keyframes floatUp {
+  0% { top: 100%; transform: translateX(0); }
+  100% { top: -20%; transform: translateX(30px); }
+}
+
+.hug-top {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hug-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.hug-message {
+  font-size: 1.3rem;
+  color: #4a4056;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hug-reply-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #e6d7f5;
+  color: #4a326f;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hug-reply-button:hover {
+  background-color: #dbc4f0;
+}
+
+.hug-reply-button.sparkle {
+  background-color: #ffd1ec !important;
+  box-shadow: 0 0 12px Black, 0 0 24px #554b50;
+  transform: scale(1.1);
+}
+
+.hug-counter-box {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  min-height: 120px;
+}
+
+.hug-count {
+  background: none;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(180, 140, 210, 0.15);
+  text-align: center;
+  width: 100px;
+}
+
+.hug-count .label {
+  font-size: 0.95rem;
+  color: #4a326f;
+  margin-bottom: 0.4rem;
+}
+
+.hug-count .count {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #4a326f;
+}
+
+.missyou-emoji {
+  font-size: 1.2rem;
+  color: #4a326f;
+  background: #fcefff;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 480px) {
+  .hug-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .hug-message {
+    font-size: 1.1rem;
+  }
+
+  .hug-reply-button {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .hug-count {
+    width: 90px;
+    padding: 0.8rem;
+  }
+
+  .hug-count .count {
+    font-size: 1.5rem;
+  }
+
+  .hug-count .label {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,27 @@
+/* index.css */
+@import "@picocss/pico";
+
+/* Base reset and layout */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #bfa2dc; /* Soft lavender */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Smooth transitions */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}

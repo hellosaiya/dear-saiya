@@ -1,0 +1,240 @@
+html, body {
+  overflow: hidden; /* Disables scrolling */
+  height: 100%; /* Ensures the content fits within the viewport */
+}
+
+.weather-heading {
+  font-size: 2rem;
+  color: #4a326f;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* vertically centers everything */
+  min-height: 100vh; /* takes full screen height */
+  padding-top: 2rem;
+  gap: 2rem;
+}
+
+.back-button {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: #e6d7f5 !important;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #4a326f !important;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.back-button:hover {
+  background-color: #dcd3e4 !important;
+}
+
+.weather-title {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.weather-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ Aligns items to the top */
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+
+.weather-card {
+  width: 260px;
+  height: 350px;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 15px 4px rgba(186, 144, 228, 0.35);
+  text-align: left;
+  cursor: pointer;
+}
+
+.weather-card:hover {
+  transform: scale(1.05); /* Adds hover effect */
+}
+
+.weather-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #5e3e8c;
+  text-align: center;
+}
+
+.weather-card p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #4a326f;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.weather-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.floating-add-button {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  background-color: #e6d7f5 !important;
+  color: #4a326f !important;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: normal !important;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.floating-add-button:hover {
+  background-color: #dcd3e4 !important;
+}
+
+.weather-popup-content {
+  background: white;  /* Semi-transparent white background */
+  padding: 2rem; /* Matches the form padding */
+  border-radius: 20px; /* Rounded corners */
+  width: min(95%, 420px); /* Matches the form width */
+  box-shadow: none; /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between form elements */
+}
+
+.weather-popup-content input {
+  width: 100%;
+  padding: 0.9rem; /* Matches the input padding */
+  border-radius: 10px; /* Rounded corners for inputs */
+  border: 1.5px solid #bb9cda; /* Matches the input border color */
+  font-size: 1rem; /* Matches the input font size */
+  background: rgba(255, 255, 255, 0.9); /* Slightly less transparent background for inputs */
+  color: black; /* Matches the input text color */
+}
+
+.popup-buttons {
+  display: flex; /* Align buttons horizontally */
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.popup-buttons .submit-btn {
+  padding: 0.6rem 1rem; /* Matches the button padding */
+  font-size: 1rem; /* Matches the button font size */
+  border-radius: 10px; /* Rounded corners for buttons */
+  cursor: pointer;
+  border: none;
+  background-color: #bb9cda; /* Matches the save button color */
+  color: white; /* Matches the save button text color */
+}
+
+.popup-buttons .cancel-btn {
+  padding: 0.6rem 1rem; /* Matches the button padding */
+  font-size: 1rem; /* Matches the button font size */
+  border-radius: 10px; /* Rounded corners for buttons */
+  cursor: pointer;
+  border: none;
+  background-color: #bb9cda; /* Matches the cancel button color */
+  color: white; /* Matches the cancel button text color */
+}
+
+.weather-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.weather-animation.sunny {
+  background: radial-gradient(circle, rgba(255,223,0,0.5) 30%, transparent 70%);
+  animation: sunny-animation 5s infinite;
+}
+
+.weather-animation.rain {
+  background: linear-gradient(to bottom, rgba(0,0,255,0.3) 10%, transparent 90%);
+  animation: rain-animation 5s infinite;
+}
+
+.weather-animation.cloud {
+  background: linear-gradient(to bottom, rgba(200,200,200,0.5) 10%, transparent 90%);
+  animation: cloud-animation 5s infinite;
+}
+
+.weather-animation.snow {
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 30%, transparent 70%);
+  animation: snow-animation 5s infinite;
+}
+
+.weather-animation.wind {
+  background: linear-gradient(to right, rgba(173,216,230,0.5) 10%, transparent 90%);
+  animation: wind-animation 5s infinite;
+}
+
+@keyframes sunny-animation {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes rain-animation {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes cloud-animation {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes snow-animation {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes wind-animation {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+.weather-popup-content input:focus,
+.weather-popup-content textarea:focus {
+  outline: none; /* Removes the blue glow */
+  border: 1.5px solid #bb9cda; /* Optional: keeps your lavender border on focus */
+  box-shadow: none; /* Optional: removes any default shadows */
+}
+
+
+
