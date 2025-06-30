@@ -87,7 +87,10 @@ export default function WishWall() {
 
       <div className="wishes-grid">
         {wishes.length === 0 ? (
-          <p className="no-wishes">No wishes yet — make your first one ✨</p>
+          <div className="no-wishes">
+          <p>Baby, apna travel plans banayenge, sab likh do idar!</p>
+        </div>
+        
         ) : (
           wishes.map(wish => (
             <motion.div
@@ -118,13 +121,13 @@ export default function WishWall() {
           <form onSubmit={addOrEditWish} className="wish-form" onClick={(e) => e.stopPropagation()}>
             <input
               type="text"
-              placeholder="Wish Title (e.g., 'Travel to Paris')"
+              placeholder="Kaha jaana hai baby?"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               required
             />
             <textarea
-              placeholder="Describe your wish ✨"
+              placeholder="Uske baare mein batao..."
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               required

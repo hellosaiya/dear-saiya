@@ -7,14 +7,21 @@ import { doc, setDoc } from 'firebase/firestore';
 import '../styles/Home.css';
 
 const photos = [
-  '/photos/photo1.jpg',
-  '/photos/photo2.jpg'
+  '/photos/photo1.png',
+  '/photos/photo2.jpg',
+  '/photos/photo3.png',
+  '/photos/photo4.png', 
+  '/photos/photo5.png',
+  '/photos/photo6.png',
+  '/photos/photo7.png',
+  '/photos/photo8.png'
 ];
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const [fade, setFade] = useState(true);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [username, setUsername] = useState(localStorage.getItem("username") || null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,8 +36,7 @@ export default function Home() {
   }, []);
 
   const handleEnter = () => {
-    const stored = localStorage.getItem("username");
-    if (!stored) {
+    if (!username) {
       setShowPrompt(true);
     } else {
       navigate('/ourlittlespace');
@@ -39,6 +45,7 @@ export default function Home() {
 
   const handleUserSelect = async (name) => {
     localStorage.setItem("username", name);
+    setUsername(name);
     setShowPrompt(false);
 
     try {
@@ -53,17 +60,26 @@ export default function Home() {
     navigate('/ourlittlespace');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    setUsername(null);
+    navigate("/"); 
+  };
+
   return (
     <div className="home-wrapper">
       <FloatingHearts />
 
       <div className="carousel-box">
+        {photos.map((src, i) => (
         <img
-          src={photos[current]}
-          alt={`Memory ${current + 1}`}
+          key={i}
+          src={src}
+          alt={`Memory ${i + 1}`}
+          className={`carousel-image ${i === current ? 'show' : ''}`}
           onError={(e) => (e.currentTarget.src = "/fallback.jpg")}
-          className={`carousel-image ${fade ? 'fade-in' : 'fade-out'}`}
         />
+        ))}
       </div>
 
       <button
@@ -72,6 +88,12 @@ export default function Home() {
       >
         Enter the Love Space 💫
       </button>
+
+      {username && (
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      )}
 
       {showPrompt && <WhoAreYouModal onSelect={handleUserSelect} />}
     </div>

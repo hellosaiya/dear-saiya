@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const features = [
   { path: "/hug", label: "🤗 Virtual Hug" },
-  { path: "/missyou", label: "🥺 I Miss You Button" },
+  { path: "/missyou", label: "🥺 Miss You" },
   { path: "/moodmeter", label: "🎭 Mood Meter" },
   { path: "/message", label: "💌 Animated Message" },
   { path: "/lovecalendar", label: "🗓️ Love Calendar" },
@@ -17,7 +17,7 @@ const features = [
   { path: "/wishwall", label: "🌠 Wish Wall" },
   { path: "/doodleboard", label: "🎨 Doodle Board" },
   { path: "/map", label: "🗺️ Where Are We?" },
-  { path: "/specialday", label: "🎂 Birthday & Anniversary" },
+  { path: "/specialday", label: "🎂 Special Days" },
   { path: "/weather", label: "⛅ Weather" },
 ];
 

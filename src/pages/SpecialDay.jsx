@@ -141,7 +141,7 @@ export default function SpecialDay() {
           >
             <input
               type="text"
-              placeholder="Event Name"
+              placeholder="Our special days baby..."
               value={form.label}
               onChange={(e) => setForm({ ...form, label: e.target.value })}
               required

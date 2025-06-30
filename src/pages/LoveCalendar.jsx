@@ -86,7 +86,7 @@ export default function LoveCalendar() {
       >
         <input
           type="text"
-          placeholder="e.g., Our Anniversary 💖"
+          placeholder="Mera baby ka imp days 💜"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required

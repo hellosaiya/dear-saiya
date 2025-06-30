@@ -152,19 +152,19 @@ export default function VirtualHug() {
           <div className="hug-message">
             {isHugForMe ? (
               <>
-                <strong>{hugData.from}</strong> just sent you a warm hug! 💌
+                <strong>{hugData.from}</strong> needs a hug, baby😘
               </>
             ) : sent ? (
-              "Your hug sent! 💖"
+              "Your are waiting for a hug back! 💜"
             ) : (
-              "Ready to send a warm hug?"
+              "Missing your baby? "
             )}
           </div>
         </div>
 
         {!sent && (
           <button className="hug-reply-button" onClick={sendHug}>
-            {isHugForMe ? "Send a Hug Back 💌" : "Send a Hug 💌"}
+            {isHugForMe ? "Send a Hug Back 🤗" : "Send a Hug 🤗"}
           </button>
         )}
 

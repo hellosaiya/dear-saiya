@@ -126,14 +126,14 @@ export default function SpotifyPlaylist() {
           <form className="playlist-form" onSubmit={handleAdd}>
             <input
               type="text"
-              placeholder="Playlist Title (e.g. Love Vibes)"
+              placeholder="Playlist (e.g. Saiya's fav)"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
             <input
               type="text"
-              placeholder="Paste Spotify playlist link"
+              placeholder="Spotify playlist link baby"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               required

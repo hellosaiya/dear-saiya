@@ -107,7 +107,7 @@ export default function MoodMeter() {
         ← Our Little Space
       </button>
 
-      <h2 className="mood-title">How are you feeling now?</h2>
+      <h2 className="mood-title">How is my baby's mood now?</h2>
 
       <div className="mood-options">
         {moods.map((mood) => (

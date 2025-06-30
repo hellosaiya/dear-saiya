@@ -68,7 +68,7 @@ export default function Weather() {
         ← Our Little Space
         </motion.button>
 
-      <h1 className="weather-heading">⛅ Weather</h1>
+      <h1 className="weather-heading">⛅ Mausam</h1>
 
       <div className="weather-cards">
         {['sai', 'sia'].map((who, i) => (

@@ -109,7 +109,7 @@ export default function GiftWishlist() {
       <h2 className="gift-title">🎁 Gift Wishlist</h2>
 
       {gifts.length === 0 ? (
-        <p className="gift-empty">No gifts yet. Add something cute 💖</p>
+        <p className="gift-empty">Kya gift chahiye cutiepie, add krdo!</p>
       ) : (
         <div className="gift-list">
           {gifts.map((gift) => (
@@ -132,7 +132,7 @@ export default function GiftWishlist() {
               {gift.description && <p>{gift.description}</p>}
               {gift.link && isValidLink(gift.link) && (
                 <a href={gift.link} target="_blank" rel="noopener noreferrer">
-                  View Gift
+                  Gift Dekho
                 </a>
               )}
             </motion.div>
@@ -153,20 +153,20 @@ export default function GiftWishlist() {
           >
             <input
               type="text"
-              placeholder="Gift Name"
+              placeholder="Mera baby ko kya chahiye?"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
             />
             <input
               type="text"
-              placeholder="Gift Description"
+              placeholder="Uske baare mein likho"
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
             />
             <input
               type="text"
-              placeholder="Gift Link"
+              placeholder="Link dedo please"
               value={form.link}
               onChange={(e) => setForm({ ...form, link: e.target.value })}
             />

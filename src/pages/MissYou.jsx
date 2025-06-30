@@ -122,10 +122,10 @@ export default function MissYou() {
   const message =
     username === "Sai"
       ? total.sia > 0
-        ? "Sia is missing you today 💔"
+        ? "Sia is missing you 🥺"
         : "Ready to say you miss her?"
       : total.sai > 0
-      ? "Sai is missing you today 💔"
+      ? "Sai is missing you 🥺"
       : "Ready to say you miss him?";
 
   return (
@@ -141,7 +141,7 @@ export default function MissYou() {
         transition={{ duration: 0.5 }}
       >
         <div className="hug-top">
-          <div className="hug-emoji">😢</div>
+          <div className="hug-emoji">🥺</div>
           <div className="hug-message">{message}</div>
         </div>
 
@@ -150,7 +150,7 @@ export default function MissYou() {
           className={`hug-reply-button ${animate ? "sparkle" : ""}`}
           whileTap={{ scale: 0.95 }}
         >
-          I Miss You 💔
+          I Miss You jaan 🥺
         </motion.button>
 
         <div className="hug-counter-box">
@@ -159,7 +159,7 @@ export default function MissYou() {
             <div className="count">{total.sai}</div>
           </div>
           <div className="hug-count">
-            <p className="label">Sia 💖</p>
+            <p className="label">Sia 💜</p>
             <div className="count">{total.sia}</div>
           </div>
         </div>

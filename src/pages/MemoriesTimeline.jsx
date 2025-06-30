@@ -98,7 +98,9 @@ export default function MemoriesTimeline() {
     setForm({
       id: memory.id,
       title: memory.title,
-      date: new Date(memory.date).toISOString().split("T")[0],
+      date: memory.date?.seconds
+        ? new Date(memory.date.seconds * 1000).toISOString().split("T")[0]
+        : "",
       description: memory.description,
       image: memory.image,
     });
@@ -137,7 +139,7 @@ export default function MemoriesTimeline() {
 
         <div className="polaroid-grid">
           {memories.length === 0 ? (
-            <p className="no-memories">No memories from your partner yet.</p>
+            <p className="no-memories">Baby, Jaldi Memories banate hai, idar toh kuch bhi nahi dikhra</p>
           ) : (
             memories.map((mem, index) => (
               <motion.div
@@ -199,13 +201,13 @@ export default function MemoriesTimeline() {
           <form className="memory-form" onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Title"
+              placeholder="Our Memory 😜"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               required
             />
             <textarea
-              placeholder="Write about the memory..."
+              placeholder="Uske baare mein likho...🤭"
               value={form.description}
               onChange={(e) =>
                 setForm({ ...form, description: e.target.value })
@@ -247,3 +249,4 @@ export default function MemoriesTimeline() {
     </>
   );
 }
+

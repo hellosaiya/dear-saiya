@@ -153,7 +153,7 @@ export default function Polls() {
               <div className="form-scroll-area">
                 <input
                   type="text"
-                  placeholder="Enter your question"
+                  placeholder="Aapka Sawaal?"
                   value={form.question}
                   onChange={e =>
                     setForm(prev => ({ ...prev, question: e.target.value }))
@@ -207,7 +207,7 @@ export default function Polls() {
 
       <div className="polls-grid">
         {polls.length === 0 && (
-          <p className="empty-text">No polls yet. Add something fun!</p>
+          <p className="empty-text">Chalo, aaj kuch polls krte hai, baby....boht khali lagra hai</p>
         )}
 
         {polls.map(p => {

@@ -37,13 +37,27 @@
   animation: fadeIn 1s ease;
 }
 
-/* No Wishes Text */
 .no-wishes {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  color: #6e5a84;
+  color: #5e3e8c;
+  font-size: 1.1rem;
   font-style: italic;
-  font-size: 1rem;
+  padding: 1rem;
+  max-width: 90%;
+  line-height: 1.5;
 }
+
+
+.no-wishes p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #5e3e8c;
+  margin: 0;
+}
+
 
 /* Grid Layout */
 .wishes-grid {

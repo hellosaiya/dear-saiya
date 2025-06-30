@@ -99,7 +99,7 @@ export default function StickyNotesWall() {
       <h2 className="page-title">📝 Sticky Notes Wall</h2>
 
       {notes.length === 0 ? (
-        <p className="no-notes">Nothing pinned yet! Add your first note 💛</p>
+        <p className="no-notes">Kuch bhi pin kar skte ho baby, Jesus toh nahi hai!</p>
       ) : (
         <div className="notes-grid">
           {notes.map(note => (
@@ -132,13 +132,13 @@ export default function StickyNotesWall() {
           >
             <input
               type="text"
-              placeholder="Title"
+              placeholder="Kya soch rahe ho?"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               required
             />
             <textarea
-              placeholder="Your note..."
+              placeholder="Bass likh do..."
               value={form.text}
               onChange={(e) => setForm({ ...form, text: e.target.value })}
               rows={4}
