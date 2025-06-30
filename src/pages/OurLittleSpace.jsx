@@ -28,7 +28,7 @@ export default function OurLittleSpace() {
     <div className="our-little-space">
       <motion.button
         className="back-button"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

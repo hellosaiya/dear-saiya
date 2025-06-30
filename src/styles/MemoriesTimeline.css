@@ -1,10 +1,36 @@
-/* src/styles/MemoriesTimeline.css */
 .memory-wall {
   background-color: #bfa2dc;
-  min-height: 100vh;
+  height: 100vh; /* Ensures full screen */
+  overflow-y: auto; /* Enables full-page vertical scrolling */
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   color: #4a326f;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling for entire page */
+.memory-wall::-webkit-scrollbar {
+  width: 8px;
+}
+
+.memory-wall::-webkit-scrollbar-track {
+  background: #e6d7f5;
+  border-radius: 10px;
+}
+
+.memory-wall::-webkit-scrollbar-thumb {
+  background: #bb9cda;
+  border-radius: 10px;
+  border: 2px solid #e6d7f5;
+}
+
+.memory-wall::-webkit-scrollbar-thumb:hover {
+  background: #a77ac8;
+}
+
+.memory-wall {
+  scrollbar-width: thin;
+  scrollbar-color: #bb9cda #e6d7f5;
 }
 
 .back-button {
@@ -42,7 +68,7 @@
 }
 
 .polaroid-card {
-  position: relative; /* Ensures the card is the reference for absolute positioning */
+  position: relative;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -52,20 +78,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 430px; /* Ensures all cards have the same height */
+  height: 430px;
 }
 
 .polaroid-card img {
   width: 100%;
-  height: 200px; /* Increased height for the image */
-  object-fit: cover; /* Ensures the image fits within the container */
-  border-radius: 10px; /* Keeps the rounded corners */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
+
 .caption {
-  flex-grow: 1; /* Ensures the caption takes up remaining space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligns content to the top */
+  justify-content: flex-start;
   text-align: center;
   padding: 0.5rem;
 }
@@ -86,67 +113,63 @@
   color: #5c4a6b;
   margin: 0.3rem 0 0.5rem;
   white-space: pre-line;
-  overflow-y: auto; /* Enables vertical scrolling */
-  text-overflow: ellipsis; /* Adds ellipsis for long text */
-  max-height: 3rem; /* Restricts the height of the description */
-  scrollbar-width: thin; /* Makes the scrollbar thinner (Firefox) */
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  max-height: 3rem;
+  scrollbar-width: thin;
 }
 
-/* Custom scrollbar styling */
 .caption p::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
+  width: 6px;
 }
 
 .caption p::-webkit-scrollbar-track {
-  background: #e6d7f5; /* Background color of the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background: #e6d7f5;
+  border-radius: 10px;
 }
 
 .caption p::-webkit-scrollbar-thumb {
-  background: #bb9cda; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 2px solid #e6d7f5; /* Adds a border to the thumb */
+  background: #bb9cda;
+  border-radius: 10px;
+  border: 2px solid #e6d7f5;
 }
 
 .caption p::-webkit-scrollbar-thumb:hover {
-  background: #a77ac8; /* Darker shade for the thumb on hover */
+  background: #a77ac8;
 }
 
-/* Custom scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e6d7f5; /* Background color of the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background: #e6d7f5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bb9cda; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 2px solid #e6d7f5; /* Adds a border to the thumb */
+  background: #bb9cda;
+  border-radius: 10px;
+  border: 2px solid #e6d7f5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a77ac8; /* Darker shade for the thumb on hover */
+  background: #a77ac8;
 }
 
-/* For Firefox */
 * {
-  scrollbar-width: thin; /* Makes the scrollbar thinner */
-  scrollbar-color: #bb9cda #e6d7f5; /* Thumb and track colors */
+  scrollbar-width: thin;
+  scrollbar-color: #bb9cda #e6d7f5;
 }
 
-/* Icon buttons */
 .card-actions {
   display: flex;
-  justify-content: center; /* Centers the buttons horizontally */
-  gap: 1rem; /* Adds spacing between the buttons */
-  position: absolute; /* Fixes the position within the card */
-  bottom: 1rem; /* Positions the buttons at the bottom of the card */
-  left: 50%; /* Centers the buttons horizontally */
-  transform: translateX(-50%); /* Adjusts for the element's own width */
+  justify-content: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   outline: none !important;
 }
 
@@ -161,111 +184,120 @@
 }
 
 .card-actions button:focus {
-  outline: none; /* Ensures no outline appears on focus */
-  box-shadow: none; /* Removes any focus shadow */
+  outline: none;
+  box-shadow: none;
 }
 
 .card-actions button:hover {
-  transform: scale(1.2); /* Enlarges the button slightly on hover */
-  color: #4a326f; /* Changes the color on hover */
+  transform: scale(1.2);
+  color: #4a326f;
 }
 
-/* Floating upload button */
 .upload-float-btn {
-  position: fixed; /* Ensures the button stays fixed relative to the viewport */
-  bottom: 1.8rem; /* Distance from the bottom of the screen */
-  right: 1.8rem; /* Distance from the right of the screen */
-  background-color: #e6d7f5; /* Matches the theme */
-  color: #4a326f; /* Text color */
-  border: none; /* Removes border */
-  border-radius: 50px; /* Rounded corners */
-  padding: 0.8rem 1.4rem; /* Button padding */
-  font-size: 1rem; /* Font size */
-  cursor: pointer; /* Pointer cursor for interactivity */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-  z-index: 9999; /* Ensures the button stays above other elements */
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  background-color: #e6d7f5;
+  color: #4a326f;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
 }
 
-/* Modal overlay */
 .form-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px); /* Adds a blurred background effect */
-  background: rgba(0, 0, 0, 0.4) ; /* Dark overlay with transparency */
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* Popup form styling */
 .memory-form {
-  background: white; /* Light background for the form */
-  border-radius: 14px; /* Rounded corners for a modern look */
+  background: white;
+  border-radius: 14px;
   padding: 2rem;
-  width: 90%; /* Ensures the form fits within the screen */
-  max-width: 500px; /* Restricts the maximum width */
-  height: auto; /* Adjusts height dynamically based on content */
-  max-height: 90%; /* Ensures the form doesn't exceed the screen height */
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  max-height: 90%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  overflow-y: hidden; /* Enables scrolling if content exceeds height */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  overflow-y: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
 }
 
 .memory-form input[type="text"] {
   padding: 0.8rem;
   border-radius: 10px;
-  border: 1.5px solid #d4bff0; /* Matches the theme */
-  background-color: #f6ecff; /* Light purple background */
-  color: #3e2b54; /* Dark text for readability */
+  border: 1.5px solid #d4bff0;
+  background-color: #f6ecff;
+  color: #3e2b54;
   font-size: 1rem;
   outline: none;
 }
 
 .memory-form input[type="text"]:focus {
   outline: none;
-  border-color: #a77ac8; /* Highlight border on focus */
-  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3); /* Subtle glow effect */
+  border-color: #a77ac8;
+  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3);
 }
 
 .memory-form textarea:focus {
   outline: none;
-  border-color: #a77ac8 !important; /* Highlight border on focus */
-  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3); /* Subtle glow effect */
+  border-color: #a77ac8 !important;
+  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3);
 }
 
 .memory-form textarea {
   padding: 0.8rem;
   border-radius: 10px;
-  border: 1.5px solid #d4bff0 !important; /* Matches the theme */
-  background-color: #f6ecff; /* Light purple background */
-  color: #3e2b54; /* Dark text for readability */
-  font-size: 1rem;
-  outline: none;
-  height: 120px; /* Fixed height for the textarea */
-  resize: none; /* Prevents resizing */
-}
-
-/* File input styling */
-.memory-form input[type="file"] {
-  padding: 0.5rem;
-  border-radius: 10px;
-  border: 1px solid #d4bff0;
+  border: 1.5px solid #d4bff0 !important;
   background-color: #f6ecff;
   color: #3e2b54;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  outline: none;
+  height: 120px;
+  resize: none;
 }
 
-/* Modal buttons */
+.memory-form input[type="file"] {
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1.5px solid #d4bff0;
+  background-color: #f6ecff;
+  color: #3e2b54;
+  font-size: 0.85rem;
+  width: 30%;
+}
+
+.memory-form input[type="file"]::file-selector-button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background-color: #bb9cda;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+  width: 50%;
+}
+
 .modal-buttons {
   display: flex;
-  justify-content: flex-end; /* Aligns buttons to the right */
-  gap: 1rem; /* Adds spacing between buttons */
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .modal-buttons button {
@@ -277,32 +309,29 @@
   transition: background-color 0.2s ease;
 }
 
-/* Submit button styling */
 .modal-buttons button[type="submit"] {
-  background-color: #bb9cda; /* Matches the theme */
+  background-color: #bb9cda;
   color: white;
 }
 
 .modal-buttons button[type="submit"]:hover {
-  background-color: #a77ac8; /* Slightly darker shade on hover */
+  background-color: #a77ac8;
 }
 
-/* Cancel button styling */
 .cancel-btn {
-  background-color: #e6d7f5; /* Light background for cancel button */
-  color: #4a326f; /* Matches the theme */
+  background-color: #e6d7f5;
+  color: #4a326f;
 }
 
 .cancel-btn:hover {
-  background-color: #a77ac8; /* Slightly darker shade on hover */
+  background-color: #a77ac8;
 }
 
 .memory-form button:focus {
-  outline: none; /* Removes the blue outline when the button is clicked */
-  box-shadow: none; /* Ensures no shadow appears on focus */
+  outline: none;
+  box-shadow: none;
 }
 
-/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -315,20 +344,20 @@
 }
 
 .modal-inputs {
-  display: flex; /* Enables flexbox layout */
-  justify-content: space-between; /* Adds space between the elements */
-  align-items: center; /* Aligns items vertically */
-  gap: 1rem; /* Adds spacing between the date picker and upload file */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .modal-inputs input[type="date"],
 .modal-inputs input[type="file"] {
-  flex: 1; /* Ensures both elements take equal space */
+  flex: 1;
   padding: 0.8rem;
   border-radius: 10px;
-  border: 1.5px solid #d4bff0; /* Matches the theme */
-  background-color: #f6ecff; /* Light purple background */
-  color: #3e2b54; /* Dark text for readability */
+  border: 1.5px solid #d4bff0;
+  background-color: #f6ecff;
+  color: #3e2b54;
   font-size: 1rem;
   outline: none;
 }
@@ -336,51 +365,10 @@
 .modal-inputs input[type="date"]:focus,
 .modal-inputs input[type="file"]:focus {
   outline: none;
-  border-color: #a77ac8; /* Highlight border on focus */
-  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3); /* Subtle glow effect */
+  border-color: #a77ac8;
+  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3);
 }
 
-.memory-form input[type="file"] {
-  padding: 0.4rem; /* Reduced padding to make it smaller */
-  border-radius: 8px; /* Slightly smaller rounded corners */
-  border: 1.5px solid #d4bff0; /* Matches the theme */
-  background-color: #f6ecff; /* Light purple background */
-  color: #3e2b54; /* Dark text for readability */
-  font-size: 0.85rem; /* Reduced font size */
-  width: 30%; /* Ensures it fits within its container */
-}
-
-.memory-form input[type="file"]::file-selector-button {
-  padding: 0.4rem 0.8rem; /* Adjusts padding for the button */
-  border-radius: 6px; /* Rounded corners for the button */
-  background-color: #bb9cda; /* Matches the theme */
-  color: white; /* Ensures text is readable */
-  border: none; /* Removes border */
-  cursor: pointer; /* Adds pointer cursor for interactivity */
-  font-size: 0.85rem; /* Matches the font size */
-  transition: background-color 0.2s ease; /* Smooth hover effect */
-  width: 50%;
-}
-
-.memory-form {
-  animation: fadeIn 0.5s ease; /* Smooth fade-in animation */
-}
-
-.polaroid-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 430px;
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-/* Add this keyframe */
 @keyframes bounceFadeIn {
   0% {
     opacity: 0;

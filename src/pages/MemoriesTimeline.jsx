@@ -32,10 +32,9 @@ export default function MemoriesTimeline() {
   const user = getCurrentUser();
 
   useEffect(() => {
-    const q = query(collection(db, "memories"), orderBy("timestamp", "desc"));
+    const q = query(collection(db, "memories"), orderBy("date", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const all = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      const filtered = all.filter((mem) => mem.createdBy !== user);
       setMemories(all);
     });
 
@@ -59,11 +58,13 @@ export default function MemoriesTimeline() {
     if (!title || !date || !description || !image) return;
 
     try {
+      const formattedDate = new Date(date);
+
       if (isEditing && id) {
         const docRef = doc(db, "memories", id);
         await updateDoc(docRef, {
           title,
-          date,
+          date: formattedDate,
           description,
           image,
           timestamp: serverTimestamp(),
@@ -71,7 +72,7 @@ export default function MemoriesTimeline() {
       } else {
         await addDoc(collection(db, "memories"), {
           title,
-          date,
+          date: formattedDate,
           description,
           image,
           createdBy: user,
@@ -97,7 +98,7 @@ export default function MemoriesTimeline() {
     setForm({
       id: memory.id,
       title: memory.title,
-      date: memory.date,
+      date: new Date(memory.date).toISOString().split("T")[0],
       description: memory.description,
       image: memory.image,
     });
@@ -153,7 +154,11 @@ export default function MemoriesTimeline() {
                 <img src={mem.image} alt={mem.title} />
                 <div className="caption">
                   <strong>{mem.title}</strong>
-                  <small>{new Date(mem.date).toLocaleDateString()}</small>
+                  <small>
+                    {mem.date
+                      ? new Date(mem.date.seconds * 1000).toLocaleDateString()
+                      : ""}
+                  </small>
                   <p>{mem.description}</p>
                   <div className="card-actions">
                     <button onClick={() => handleEdit(mem)} title="Edit">
@@ -202,7 +207,9 @@ export default function MemoriesTimeline() {
             <textarea
               placeholder="Write about the memory..."
               value={form.description}
-              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, description: e.target.value })
+              }
               required
             />
             <div className="modal-inputs">

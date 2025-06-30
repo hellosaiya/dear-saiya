@@ -1,0 +1,105 @@
+.login-wrapper {
+    min-height: 100vh;
+    background-color: #bfa2dc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    color: #4a326f;
+  }
+  
+  .login-card {
+    width: 350px;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .login-heading {
+    font-size: 1.8rem;
+    margin-bottom: 2rem !important;
+    color: #4a326f;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0.8rem !important;
+    border: 1.5px solid #d4bff0;
+    border-radius: 10px;
+    background-color: #f6ecff;
+    color: #3e2b54;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .login-form input:focus {
+    border-color: #a77ac8;
+    box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3);
+  }
+  
+  .login-btn {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: none !important;
+    cursor: pointer;
+    width: 70% !important;
+    background-color: #bb9cda !important;
+    color: white !important;
+    transition: background-color 0.2s ease;
+    margin: 0 auto;
+  }
+  
+  .login-btn:hover {
+    background-color: #8b5cd6;
+  }
+  
+  .login-buttons button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .error-text {
+    color: #ff4d4f;
+    background-color: #ffe8e9;
+    border-left: 4px solid #ff4d4f;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    margin-top: -0.2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    animation: fadeSlideIn 0.3s ease-out;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .login-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f6ecff inset !important;
+    -webkit-text-fill-color: #3e2b54 !important;
+    caret-color: #3e2b54;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+  
+  

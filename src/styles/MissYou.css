@@ -46,37 +46,6 @@
   z-index: 1;
 }
 
-.floating-hearts {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.floating-hearts::before,
-.floating-hearts::after {
-  content: '💗 💕 💖 💘 💝 💞';
-  position: absolute;
-  top: 100%;
-  left: 10%;
-  white-space: nowrap;
-  font-size: 2rem;
-  opacity: 0.2;
-  animation: floatUp 12s linear infinite;
-}
-
-.floating-hearts::after {
-  left: 40%;
-  animation-delay: 6s;
-}
-
-@keyframes floatUp {
-  0% { top: 100%; transform: translateX(0); }
-  100% { top: -20%; transform: translateX(30px); }
-}
-
 .hug-top {
   flex-grow: 1;
   display: flex;

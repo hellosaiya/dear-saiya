@@ -1,4 +1,3 @@
-// src/pages/MissYou.jsx
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -131,7 +130,6 @@ export default function MissYou() {
 
   return (
     <div className="hug-wrapper">
-      <div className="floating-hearts" />
       <button className="back-button" onClick={() => window.history.back()}>
         ← Our Little Space
       </button>

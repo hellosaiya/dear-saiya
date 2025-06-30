@@ -82,6 +82,7 @@
 .wish-card p {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+  color: #4a326f;
 }
 
 .wish-user {
@@ -170,7 +171,7 @@
 .wish-form input,
 .wish-form textarea {
   background-color: #f6ecff;
-  color: #4a326f;
+  color: #4a326f !important;
   padding: 0.8rem;
   border: 1.5px solid #d4bff0;
   border-radius: 10px;

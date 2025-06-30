@@ -1,6 +1,6 @@
 .calendar-page {
   background-color: #bfa2dc;
-  min-height: 100vh;
+  height: 100vh; /* Full screen height */
   padding: 2rem;
   font-family: "Segoe UI", sans-serif;
   color: #4a326f;
@@ -8,13 +8,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow-y: auto;
+  overflow-y: auto; /* Full-page scroll */
   scroll-behavior: smooth;
-}
-
-.calendar-title {
-  font-size: 2rem;
-  color: #4a326f;
 }
 
 /* Scrollbar styling for entire page */
@@ -40,6 +35,11 @@
 .calendar-page {
   scrollbar-width: thin;
   scrollbar-color: #bb9cda #e6d7f5;
+}
+
+.calendar-title {
+  font-size: 2rem;
+  color: #4a326f;
 }
 
 .back-button {
@@ -111,9 +111,11 @@
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border: 1px solid #e9d8f7;
-  max-height: 300px; /* Scroll height limit */
-  overflow-y: auto;
   scroll-behavior: smooth;
+
+  /* Removed scroll-limiting props */
+  max-height: none;
+  overflow-y: visible;
 }
 
 /* Scrollbar styling for event list */

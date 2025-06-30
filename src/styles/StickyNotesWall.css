@@ -152,7 +152,7 @@
   .popup-form input,
   .popup-form textarea {
     background-color: #f6ecff;
-    color: #4a326f;
+    color: #4a326f !important;
     padding: 0.8rem;
     border: 1.5px solid #d4bff0 !important;
     border-radius: 10px;

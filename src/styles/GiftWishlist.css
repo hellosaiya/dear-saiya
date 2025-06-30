@@ -23,6 +23,16 @@
   justify-content: flex-start ;
 }
 
+.gift-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+
+
 /* Gift card */
 .gift-card {
   background: #fff4ff;
@@ -67,6 +77,7 @@
   right: 0.4rem;
   display: flex;
   gap: 1rem;
+  outline: none !important;
 }
 
 .gift-card-actions button {
@@ -76,12 +87,18 @@
   cursor: pointer;
   padding: 0;
   color: #6a3dad;
+  transition: transform 0.2s ease, color 0.2s ease;
+  outline: none !important;
 }
 
 .gift-card-actions button:hover {
   opacity: 0.8;
 }
 
+.gift-card-actions button:focus {
+  outline: none;
+  box-shadow: none;
+}
 /* Add Gift Button */
 .gift-add-btn {
   position: fixed;
@@ -134,10 +151,16 @@
   background: white;
   padding: 0.8rem;
   border-radius: 10px;
+  color: #4a326f !important;
   border: 1.5px solid #d3c2e7;
   font-size: 1rem;
 }
 
+.gift-form input:focus {
+  outline: none;
+  border-color: #a77ac8;
+  box-shadow: 0 0 0 2px rgba(167, 122, 200, 0.3);
+}
 .gift-form-actions {
   display: flex;
   justify-content: space-between;

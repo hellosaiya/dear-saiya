@@ -173,7 +173,7 @@
   border: 1px solid #bb9cda; /* Matches the input border color */
   font-size: 1rem; /* Matches the input font size */
   background: white; /* Matches the input background */
-  color: black; /* Matches the input text color */
+  color: #4a326f; /* Matches the input text color */
 }
 
 .modal-buttons {

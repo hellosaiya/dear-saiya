@@ -139,8 +139,6 @@ export default function VirtualHug() {
 
   return (
     <div className="hug-wrapper">
-      <div className="floating-hearts" />
-
       <button className="back-button" onClick={() => navigate("/ourlittlespace")}>← Our Little Space</button>
 
       <motion.div

@@ -13,7 +13,7 @@ import {
 import Confetti from 'react-confetti';
 import { useWindowSize } from '@uidotdev/usehooks';
 import { useNavigate } from 'react-router-dom';
-import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import '../styles/SpecialDay.css';
 
@@ -84,9 +84,11 @@ export default function SpecialDay() {
         className="back-button"
         onClick={() => navigate("/ourlittlespace")}
         whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }} >
+        whileTap={{ scale: 0.95 }}
+      >
         ← Our Little Space
       </motion.button>
+
       {!todayEvent && <h2 className="special-title">🎉 Special Days</h2>}
 
       {todayEvent && (
@@ -118,8 +120,8 @@ export default function SpecialDay() {
                 <h4>{d.label}</h4>
                 <p>{d.date}</p>
                 <div className="special-day-actions">
-                  <button onClick={() => handleEdit(d)}><FaEdit /></button>
-                  <button onClick={() => handleDelete(d.id)}><FaTrashAlt /></button>
+                  <button onClick={() => handleEdit(d)}><FiEdit2 /></button>
+                  <button onClick={() => handleDelete(d.id)}><FiTrash2 /></button>
                 </div>
               </motion.div>
             ))}
@@ -128,7 +130,10 @@ export default function SpecialDay() {
       )}
 
       {showForm && (
-        <div className="special-form-overlay" onClick={() => setShowForm(false)}>
+        <div className="special-form-overlay" onClick={() => {
+          setShowForm(false);
+          setEditingId(null);
+        }}>
           <form
             className="special-form bounce-in"
             onClick={e => e.stopPropagation()}
@@ -149,13 +154,28 @@ export default function SpecialDay() {
             />
             <div className="form-buttons">
               <button type="submit">{editingId ? 'Update' : 'Save'}</button>
-              <button type="button" className="cancel-btn" onClick={() => setShowForm(false)}>Cancel</button>
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={() => {
+                  setShowForm(false);
+                  setEditingId(null);
+                }}
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>
       )}
 
-      <button className="floating-add-button" onClick={() => setShowForm(true)}>+ Special Day</button>
+      <button className="floating-add-button" onClick={() => {
+        setShowForm(true);
+        setForm({ label: '', date: '' });
+        setEditingId(null);
+      }}>
+        + Special Day
+      </button>
     </main>
   );
 }

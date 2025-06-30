@@ -18,8 +18,8 @@
     width: min(50vw, 460px);
     aspect-ratio: 4 / 3;
     background: #ffffff;
-    border: 12px solid #bb9cda;
-    border-radius: 16px;
+    border: 5px solid white;
+    border-radius: 10px;
     box-shadow: 0 12px 30px rgba(160, 112, 210, 0.5);
     overflow: hidden;
     display: flex;
@@ -62,5 +62,24 @@
   
   .enter-button:hover {
     transform: scale(1.05);
+  }
+  
+  .logout-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #6e4a9e;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+  }
+  
+  .logout-button:hover {
+    background-color: #a779d3;
   }
   

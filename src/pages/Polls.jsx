@@ -147,8 +147,8 @@ export default function Polls() {
       </button>
 
       {showForm && (
-        <div className="modal-overlay">
-          <div className="modal-form fixed-size">
+        <div className="modal-overlay" onClick={() => setShowForm(false)}>
+          <div className="modal-form fixed-size" onClick={(e) => e.stopPropagation()}>
             <form onSubmit={handleSubmit}>
               <div className="form-scroll-area">
                 <input
@@ -215,8 +215,8 @@ export default function Polls() {
           return (
             <motion.div
               key={p.id}
-              className="poll-card"
-              initial={{ opacity: 0, scale: 0.95 }}
+              className="poll-card pop-in"
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
             >
@@ -231,7 +231,8 @@ export default function Polls() {
                   </button>
                 </div>
               </div>
-              <div className="options">
+
+              <div className="scrollable-options">
                 {p.options.map((opt, i) => {
                   const percent = total
                     ? Math.round((opt.votes / total) * 100)

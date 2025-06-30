@@ -140,7 +140,7 @@ html, body {
   border: 1.5px solid #bb9cda; /* Matches the input border color */
   font-size: 1rem; /* Matches the input font size */
   background: rgba(255, 255, 255, 0.9); /* Slightly less transparent background for inputs */
-  color: black; /* Matches the input text color */
+  color: #4a326f; /* Matches the input text color */
 }
 
 .popup-buttons {

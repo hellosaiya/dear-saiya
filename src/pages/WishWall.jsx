@@ -14,6 +14,7 @@ import {
   query,
   orderBy
 } from 'firebase/firestore';
+import { motion } from 'framer-motion';
 import '../styles/WishWall.css';
 
 export default function WishWall() {
@@ -65,15 +66,37 @@ export default function WishWall() {
 
   return (
     <main className="wishwall-container">
-      <button className="back-button" onClick={() => navigate('/ourlittlespace')}>← Our Little Space</button>
-      <h2 className="wishwall-heading fade-in">🌠 Wish Wall</h2>
+      <motion.button
+        className="back-button"
+        onClick={() => navigate('/ourlittlespace')}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        ← Our Little Space
+      </motion.button>
+
+      <motion.h2
+        className="wishwall-heading"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        🌠 Wish Wall
+      </motion.h2>
 
       <div className="wishes-grid">
         {wishes.length === 0 ? (
           <p className="no-wishes">No wishes yet — make your first one ✨</p>
         ) : (
           wishes.map(wish => (
-            <div key={wish.id} className="wish-card pop-in">
+            <motion.div
+              key={wish.id}
+              className="wish-card"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+            >
               <div className="wish-actions">
                 <button onClick={() => openEditForm(wish)} title="Edit">
                   <FiEdit2 />
@@ -85,7 +108,7 @@ export default function WishWall() {
               <h4>🌟 {wish.title}</h4>
               <p>{wish.message}</p>
               <span className="wish-user">— {wish.user || "Unknown"}</span>
-            </div>
+            </motion.div>
           ))
         )}
       </div>
@@ -114,15 +137,18 @@ export default function WishWall() {
         </div>
       )}
 
-      <button
+      <motion.button
         className="floating-add-button"
         onClick={() => {
           setForm({ title: '', message: '' });
           setShowForm(true);
         }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         + Add Wish
-      </button>
+      </motion.button>
     </main>
   );
 }

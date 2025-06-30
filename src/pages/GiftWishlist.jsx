@@ -8,6 +8,8 @@ import {
   updateDoc,
   doc,
   serverTimestamp,
+  query,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { FiTrash2, FiEdit2 } from "react-icons/fi";
@@ -29,7 +31,8 @@ export default function GiftWishlist() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsub = onSnapshot(collection(db, "gifts"), (snapshot) => {
+    const q = query(collection(db, "gifts"), orderBy("timestamp", "desc"));
+    const unsub = onSnapshot(q, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -40,8 +43,22 @@ export default function GiftWishlist() {
     return () => unsub();
   }, []);
 
+  const isValidLink = (url) => {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.name) return;
+    if (form.link && !isValidLink(form.link)) {
+      alert("Please enter a valid URL for the link.");
+      return;
+    }
 
     const giftData = {
       name: form.name,
@@ -104,16 +121,16 @@ export default function GiftWishlist() {
               transition={{ duration: 0.4 }}
             >
               <div className="gift-card-actions">
-                <button onClick={() => handleEdit(gift)}>
+                <button onClick={() => handleEdit(gift)} title="Edit">
                   <FiEdit2 />
                 </button>
-                <button onClick={() => handleDelete(gift.id)}>
+                <button onClick={() => handleDelete(gift.id)} title="Delete">
                   <FiTrash2 />
                 </button>
               </div>
               <p><strong>{gift.name}</strong></p>
               {gift.description && <p>{gift.description}</p>}
-              {gift.link && (
+              {gift.link && isValidLink(gift.link) && (
                 <a href={gift.link} target="_blank" rel="noopener noreferrer">
                   View Gift
                 </a>
@@ -123,7 +140,9 @@ export default function GiftWishlist() {
         </div>
       )}
 
-      <button className="gift-add-btn" onClick={() => setShowForm(true)}>+ Add Gift</button>
+      <button className="gift-add-btn" onClick={() => setShowForm(true)}>
+        + Add Gift
+      </button>
 
       {showForm && (
         <div className="gift-popup" onClick={() => setShowForm(false)}>
