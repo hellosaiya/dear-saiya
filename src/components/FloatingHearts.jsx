@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const emojis = ['💜', '💟', '💟', '💟', '💜', '💟'];
+const emojis = ['💜', '💜', '💜', '💟', '💜', '💟'];
 const colors = ['#bb9cda', '#c9b6e4', '#d8c2f0', '#e6d7f5', '#f3e9fb', '#a98cc9'];
 
 export default function FloatingHearts() {
